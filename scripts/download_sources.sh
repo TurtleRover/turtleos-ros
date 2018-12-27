@@ -1,6 +1,8 @@
 #!/bin/bash
 # Download ROS package sources
 
+echo "Downloading ROS packages"
+
 mkdir -p ros_ws
 cd ros_ws
 
