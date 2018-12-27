@@ -12,8 +12,8 @@ before_script:
   - sudo apt-get install python-rosinstall-generator python-wstool python-catkin-tools
 
 script:
+  - bash scripts/download_sources.sh
   - bash scripts/download-raspbian.sh
   - sudo bash scripts/extend-raspbian.sh
   - sudo bash scripts/mount-raspbian.sh
-  - bash scripts/download_sources.sh
   - sudo bash scripts/install_dependencies.sh
