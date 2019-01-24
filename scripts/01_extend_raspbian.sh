@@ -1,8 +1,18 @@
-#!/bin/bash
+#!/bin/bash -e
 # Extends raspbian root partition
 
+if [[ -z $1 ]]; then
+    echo "Usage: $0 [SIZE_MB]"
+    exit 1
+fi
+
+if [[ $EUID -ne 0 ]]; then
+    echo "This script should be run as root"
+    exit 1
+fi
+
 IMG=raspbian_lite.img
-EXTEND_MB=400
+EXTEND_MB=$1
 
 echo "Extending raspbian root partition by ${EXTEND_MB}MB"
 

@@ -1,11 +1,16 @@
-#!/bin/bash 
+#!/bin/bash -e
 # Mounts raspbian image root partition
 
-IMG='raspbian_lite.img'
-MNT='ros_ws/raspbian-sysroot'
+if [[ $EUID -ne 0 ]]; then
+    echo "This script should be run as root"
+    exit 1
+fi
+
+IMG='image/raspbian_lite.img'
+MNT='raspbian-sysroot'
 
 # Attach loopback device
-LOOP_DEV=`losetup -f --show image/${IMG}`
+LOOP_DEV=`losetup -f --show ${IMG}`
 if [[ $? != 0 ]]; then
     echo "Error attaching loopback device"
     exit 1
@@ -21,7 +26,7 @@ echo "Located root partition at sector $ROOT_START (sector size: ${SECTOR_SIZE}B
 
 # Mount root partition
 mkdir -p $MNT
-mount image/${IMG} -o loop,offset=$(($ROOT_START*$SECTOR_SIZE)),rw $MNT
+mount ${IMG} -o loop,offset=$(($ROOT_START*$SECTOR_SIZE)),rw $MNT
 if [[ $? != 0 ]]; then
     echo "Error mounting root partition"
 else

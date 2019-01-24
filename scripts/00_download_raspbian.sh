@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 # Downloads latest raspbian lite image
 
 ZIP=raspbian_lite.zip
