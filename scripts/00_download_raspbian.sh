@@ -3,7 +3,7 @@
 
 ZIP=raspbian_lite.zip
 IMG=raspbian_lite.img
-URL=https://downloads.raspberrypi.org/raspbian_lite_latest
+URL=http://downloads.raspberrypi.org/raspbian_lite/images/raspbian_lite-2019-04-09/2019-04-08-raspbian-stretch-lite.zip
 
 echo "Downloading latest raspbian lite release"
 mkdir -p image

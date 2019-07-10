@@ -6,7 +6,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 ./scripts/00_download_raspbian.sh
-./scripts/01_extend_raspbian.sh 1000
+./scripts/01_extend_raspbian.sh 5000
 ./scripts/02_mount_raspbian.sh
 ./scripts/03_copy_qemu.sh
 ./scripts/04_install_tools.sh

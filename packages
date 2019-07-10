@@ -1,1 +1,1 @@
-ros_comm common_msgs joy roswww
+ros_comm common_msgs joy roswww gscam web_video_server rosbridge_server
